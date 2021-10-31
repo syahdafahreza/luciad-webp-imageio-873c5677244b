@@ -1,0 +1,533 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_8900e/fast && /usr/bin/make  -f CMakeFiles/cmTC_8900e.dir/build.make CMakeFiles/cmTC_8900e.dir/build
+make[1]: Entering directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8900e.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIE -o CMakeFiles/cmTC_8900e.dir/src.c.o -c /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_8900e
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8900e.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_8900e.dir/src.c.o -o cmTC_8900e 
+CMakeFiles/cmTC_8900e.dir/src.c.o: In function `main':
+src.c:(.text+0x3e): undefined reference to `pthread_create'
+src.c:(.text+0x4a): undefined reference to `pthread_detach'
+src.c:(.text+0x56): undefined reference to `pthread_cancel'
+src.c:(.text+0x67): undefined reference to `pthread_join'
+src.c:(.text+0x7b): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_8900e.dir/build.make:98: recipe for target 'cmTC_8900e' failed
+make[1]: *** [cmTC_8900e] Error 1
+make[1]: Leaving directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_8900e/fast' failed
+make: *** [cmTC_8900e/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_312a9/fast && /usr/bin/make  -f CMakeFiles/cmTC_312a9.dir/build.make CMakeFiles/cmTC_312a9.dir/build
+make[1]: Entering directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_312a9.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE -o CMakeFiles/cmTC_312a9.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.21/Modules/CheckFunctionExists.c
+Linking C executable cmTC_312a9
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_312a9.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_312a9.dir/CheckFunctionExists.c.o -o cmTC_312a9  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_312a9.dir/build.make:98: recipe for target 'cmTC_312a9' failed
+make[1]: *** [cmTC_312a9] Error 1
+make[1]: Leaving directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_312a9/fast' failed
+make: *** [cmTC_312a9/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test HAVE_MATH_LIBRARY failed with the following output:
+Change Dir: /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_860b2/fast && /usr/bin/make  -f CMakeFiles/cmTC_860b2.dir/build.make CMakeFiles/cmTC_860b2.dir/build
+make[1]: Entering directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_860b2.dir/src.c.o
+/usr/bin/cc -DHAVE_MATH_LIBRARY  -pthread  -fPIE -o CMakeFiles/cmTC_860b2.dir/src.c.o -c /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_860b2
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_860b2.dir/link.txt --verbose=1
+/usr/bin/cc  -pthread  CMakeFiles/cmTC_860b2.dir/src.c.o -o cmTC_860b2 
+CMakeFiles/cmTC_860b2.dir/src.c.o: In function `main':
+src.c:(.text+0x1d): undefined reference to `pow'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_860b2.dir/build.make:98: recipe for target 'cmTC_860b2' failed
+make[1]: *** [cmTC_860b2] Error 1
+make[1]: Leaving directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_860b2/fast' failed
+make: *** [cmTC_860b2/fast] Error 2
+
+
+Source file was:
+
+    #include <math.h>
+    int main(int argc, char** argv) {
+      return (int)pow(argc, 2.5);
+    }
+  
+Determining if files GLUT/glut.h exist failed with the following output:
+Change Dir: /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_aa20e/fast && /usr/bin/make  -f CMakeFiles/cmTC_aa20e.dir/build.make CMakeFiles/cmTC_aa20e.dir/build
+make[1]: Entering directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_aa20e.dir/HAVE_GLUT_GLUT_H.c.o
+/usr/bin/cc   -pthread  -fPIE -o CMakeFiles/cmTC_aa20e.dir/HAVE_GLUT_GLUT_H.c.o -c /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CheckIncludeFiles/HAVE_GLUT_GLUT_H.c
+/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CheckIncludeFiles/HAVE_GLUT_GLUT_H.c:2:10: fatal error: GLUT/glut.h: No such file or directory
+ #include <GLUT/glut.h>
+          ^~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_aa20e.dir/build.make:77: recipe for target 'CMakeFiles/cmTC_aa20e.dir/HAVE_GLUT_GLUT_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_aa20e.dir/HAVE_GLUT_GLUT_H.c.o] Error 1
+make[1]: Leaving directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_aa20e/fast' failed
+make: *** [cmTC_aa20e/fast] Error 2
+
+
+Source:
+/* */
+#include <GLUT/glut.h>
+
+
+int main(void){return 0;}
+
+Determining if files GL/glut.h exist failed with the following output:
+Change Dir: /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_494c8/fast && /usr/bin/make  -f CMakeFiles/cmTC_494c8.dir/build.make CMakeFiles/cmTC_494c8.dir/build
+make[1]: Entering directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_494c8.dir/HAVE_GL_GLUT_H.c.o
+/usr/bin/cc   -pthread  -fPIE -o CMakeFiles/cmTC_494c8.dir/HAVE_GL_GLUT_H.c.o -c /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CheckIncludeFiles/HAVE_GL_GLUT_H.c
+/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CheckIncludeFiles/HAVE_GL_GLUT_H.c:2:10: fatal error: GL/glut.h: No such file or directory
+ #include <GL/glut.h>
+          ^~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_494c8.dir/build.make:77: recipe for target 'CMakeFiles/cmTC_494c8.dir/HAVE_GL_GLUT_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_494c8.dir/HAVE_GL_GLUT_H.c.o] Error 1
+make[1]: Leaving directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_494c8/fast' failed
+make: *** [cmTC_494c8/fast] Error 2
+
+
+Source:
+/* */
+#include <GL/glut.h>
+
+
+int main(void){return 0;}
+
+Determining if files OpenGL/glut.h exist failed with the following output:
+Change Dir: /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_87094/fast && /usr/bin/make  -f CMakeFiles/cmTC_87094.dir/build.make CMakeFiles/cmTC_87094.dir/build
+make[1]: Entering directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_87094.dir/HAVE_OPENGL_GLUT_H.c.o
+/usr/bin/cc   -pthread  -fPIE -o CMakeFiles/cmTC_87094.dir/HAVE_OPENGL_GLUT_H.c.o -c /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CheckIncludeFiles/HAVE_OPENGL_GLUT_H.c
+/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CheckIncludeFiles/HAVE_OPENGL_GLUT_H.c:2:10: fatal error: OpenGL/glut.h: No such file or directory
+ #include <OpenGL/glut.h>
+          ^~~~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_87094.dir/build.make:77: recipe for target 'CMakeFiles/cmTC_87094.dir/HAVE_OPENGL_GLUT_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_87094.dir/HAVE_OPENGL_GLUT_H.c.o] Error 1
+make[1]: Leaving directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_87094/fast' failed
+make: *** [cmTC_87094/fast] Error 2
+
+
+Source:
+/* */
+#include <OpenGL/glut.h>
+
+
+int main(void){return 0;}
+
+Determining if files shlwapi.h exist failed with the following output:
+Change Dir: /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a63fe/fast && /usr/bin/make  -f CMakeFiles/cmTC_a63fe.dir/build.make CMakeFiles/cmTC_a63fe.dir/build
+make[1]: Entering directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a63fe.dir/HAVE_SHLWAPI_H.c.o
+/usr/bin/cc   -pthread  -fPIE -o CMakeFiles/cmTC_a63fe.dir/HAVE_SHLWAPI_H.c.o -c /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CheckIncludeFiles/HAVE_SHLWAPI_H.c
+/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CheckIncludeFiles/HAVE_SHLWAPI_H.c:2:10: fatal error: shlwapi.h: No such file or directory
+ #include <shlwapi.h>
+          ^~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_a63fe.dir/build.make:77: recipe for target 'CMakeFiles/cmTC_a63fe.dir/HAVE_SHLWAPI_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_a63fe.dir/HAVE_SHLWAPI_H.c.o] Error 1
+make[1]: Leaving directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_a63fe/fast' failed
+make: *** [cmTC_a63fe/fast] Error 2
+
+
+Source:
+/* */
+#include <shlwapi.h>
+
+
+int main(void){return 0;}
+
+Determining if files wincodec.h exist failed with the following output:
+Change Dir: /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_01efe/fast && /usr/bin/make  -f CMakeFiles/cmTC_01efe.dir/build.make CMakeFiles/cmTC_01efe.dir/build
+make[1]: Entering directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_01efe.dir/HAVE_WINCODEC_H.c.o
+/usr/bin/cc   -pthread  -fPIE -o CMakeFiles/cmTC_01efe.dir/HAVE_WINCODEC_H.c.o -c /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CheckIncludeFiles/HAVE_WINCODEC_H.c
+/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CheckIncludeFiles/HAVE_WINCODEC_H.c:2:10: fatal error: wincodec.h: No such file or directory
+ #include <wincodec.h>
+          ^~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_01efe.dir/build.make:77: recipe for target 'CMakeFiles/cmTC_01efe.dir/HAVE_WINCODEC_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_01efe.dir/HAVE_WINCODEC_H.c.o] Error 1
+make[1]: Leaving directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_01efe/fast' failed
+make: *** [cmTC_01efe/fast] Error 2
+
+
+Source:
+/* */
+#include <wincodec.h>
+
+
+int main(void){return 0;}
+
+Determining if files windows.h exist failed with the following output:
+Change Dir: /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_086ef/fast && /usr/bin/make  -f CMakeFiles/cmTC_086ef.dir/build.make CMakeFiles/cmTC_086ef.dir/build
+make[1]: Entering directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_086ef.dir/HAVE_WINDOWS_H.c.o
+/usr/bin/cc   -pthread  -fPIE -o CMakeFiles/cmTC_086ef.dir/HAVE_WINDOWS_H.c.o -c /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CheckIncludeFiles/HAVE_WINDOWS_H.c
+/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CheckIncludeFiles/HAVE_WINDOWS_H.c:2:10: fatal error: windows.h: No such file or directory
+ #include <windows.h>
+          ^~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_086ef.dir/build.make:77: recipe for target 'CMakeFiles/cmTC_086ef.dir/HAVE_WINDOWS_H.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_086ef.dir/HAVE_WINDOWS_H.c.o] Error 1
+make[1]: Leaving directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_086ef/fast' failed
+make: *** [cmTC_086ef/fast] Error 2
+
+
+Source:
+/* */
+#include <windows.h>
+
+
+int main(void){return 0;}
+
+Performing C SOURCE FILE Test WEBP_HAVE_FLAG_SSE41 failed with the following output:
+Change Dir: /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_5b402/fast && /usr/bin/make  -f CMakeFiles/cmTC_5b402.dir/build.make CMakeFiles/cmTC_5b402.dir/build
+make[1]: Entering directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5b402.dir/src.c.o
+/usr/bin/cc -DWEBP_HAVE_FLAG_SSE41 -I/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/libwebp -pthread  -fPIE -o CMakeFiles/cmTC_5b402.dir/src.c.o -c /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c
+/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c:5:9: error: unknown type name ‘this’
+         this is not valid code
+         ^~~~
+/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c:5:17: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘not’
+         this is not valid code
+                 ^~~
+CMakeFiles/cmTC_5b402.dir/build.make:77: recipe for target 'CMakeFiles/cmTC_5b402.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_5b402.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_5b402/fast' failed
+make: *** [cmTC_5b402/fast] Error 2
+
+
+Source file was:
+
+      #include "/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/libwebp/cmake/../src/dsp/dsp.h"
+      int main(void) {
+        #if !defined(WEBP_USE_SSE41)
+        this is not valid code
+        #endif
+        return 0;
+      }
+    
+Performing C SOURCE FILE Test WEBP_HAVE_FLAG_MIPS32 failed with the following output:
+Change Dir: /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_24755/fast && /usr/bin/make  -f CMakeFiles/cmTC_24755.dir/build.make CMakeFiles/cmTC_24755.dir/build
+make[1]: Entering directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_24755.dir/src.c.o
+/usr/bin/cc -DWEBP_HAVE_FLAG_MIPS32 -I/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/libwebp -pthread  -fPIE -o CMakeFiles/cmTC_24755.dir/src.c.o -c /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c
+/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c:5:9: error: unknown type name ‘this’
+         this is not valid code
+         ^~~~
+/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c:5:17: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘not’
+         this is not valid code
+                 ^~~
+CMakeFiles/cmTC_24755.dir/build.make:77: recipe for target 'CMakeFiles/cmTC_24755.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_24755.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_24755/fast' failed
+make: *** [cmTC_24755/fast] Error 2
+
+
+Source file was:
+
+      #include "/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/libwebp/cmake/../src/dsp/dsp.h"
+      int main(void) {
+        #if !defined(WEBP_USE_MIPS32)
+        this is not valid code
+        #endif
+        return 0;
+      }
+    
+Performing C SOURCE FILE Test WEBP_HAVE_FLAG_MIPS32 failed with the following output:
+Change Dir: /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_9dfba/fast && /usr/bin/make  -f CMakeFiles/cmTC_9dfba.dir/build.make CMakeFiles/cmTC_9dfba.dir/build
+make[1]: Entering directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9dfba.dir/src.c.o
+/usr/bin/cc -DWEBP_HAVE_FLAG_MIPS32 -I/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/libwebp -pthread -mips32 -fPIE -o CMakeFiles/cmTC_9dfba.dir/src.c.o -c /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command line option ‘-mips32’; did you mean ‘-mpc32’?
+CMakeFiles/cmTC_9dfba.dir/build.make:77: recipe for target 'CMakeFiles/cmTC_9dfba.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_9dfba.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_9dfba/fast' failed
+make: *** [cmTC_9dfba/fast] Error 2
+
+
+Source file was:
+
+      #include "/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/libwebp/cmake/../src/dsp/dsp.h"
+      int main(void) {
+        #if !defined(WEBP_USE_MIPS32)
+        this is not valid code
+        #endif
+        return 0;
+      }
+    
+Performing C SOURCE FILE Test WEBP_HAVE_FLAG_MIPS_DSP_R2 failed with the following output:
+Change Dir: /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_d83cf/fast && /usr/bin/make  -f CMakeFiles/cmTC_d83cf.dir/build.make CMakeFiles/cmTC_d83cf.dir/build
+make[1]: Entering directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d83cf.dir/src.c.o
+/usr/bin/cc -DWEBP_HAVE_FLAG_MIPS_DSP_R2 -I/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/libwebp -pthread  -fPIE -o CMakeFiles/cmTC_d83cf.dir/src.c.o -c /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c
+/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c:5:9: error: unknown type name ‘this’
+         this is not valid code
+         ^~~~
+/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c:5:17: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘not’
+         this is not valid code
+                 ^~~
+CMakeFiles/cmTC_d83cf.dir/build.make:77: recipe for target 'CMakeFiles/cmTC_d83cf.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_d83cf.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_d83cf/fast' failed
+make: *** [cmTC_d83cf/fast] Error 2
+
+
+Source file was:
+
+      #include "/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/libwebp/cmake/../src/dsp/dsp.h"
+      int main(void) {
+        #if !defined(WEBP_USE_MIPS_DSP_R2)
+        this is not valid code
+        #endif
+        return 0;
+      }
+    
+Performing C SOURCE FILE Test WEBP_HAVE_FLAG_MIPS_DSP_R2 failed with the following output:
+Change Dir: /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_55a1a/fast && /usr/bin/make  -f CMakeFiles/cmTC_55a1a.dir/build.make CMakeFiles/cmTC_55a1a.dir/build
+make[1]: Entering directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_55a1a.dir/src.c.o
+/usr/bin/cc -DWEBP_HAVE_FLAG_MIPS_DSP_R2 -I/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/libwebp -pthread -mdspr2 -fPIE -o CMakeFiles/cmTC_55a1a.dir/src.c.o -c /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command line option ‘-mdspr2’; did you mean ‘-msse2’?
+CMakeFiles/cmTC_55a1a.dir/build.make:77: recipe for target 'CMakeFiles/cmTC_55a1a.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_55a1a.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_55a1a/fast' failed
+make: *** [cmTC_55a1a/fast] Error 2
+
+
+Source file was:
+
+      #include "/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/libwebp/cmake/../src/dsp/dsp.h"
+      int main(void) {
+        #if !defined(WEBP_USE_MIPS_DSP_R2)
+        this is not valid code
+        #endif
+        return 0;
+      }
+    
+Performing C SOURCE FILE Test HAS_COMPILE_FLAG failed with the following output:
+Change Dir: /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_e6194/fast && /usr/bin/make  -f CMakeFiles/cmTC_e6194.dir/build.make CMakeFiles/cmTC_e6194.dir/build
+make[1]: Entering directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e6194.dir/src.c.o
+/usr/bin/cc -DHAS_COMPILE_FLAG  -pthread -mdspr2 -fPIE   -mno-dspr2 -o CMakeFiles/cmTC_e6194.dir/src.c.o -c /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command line option '-mdspr2'; did you mean '-msse2'?
+cc: error: unrecognized command line option '-mno-dspr2'; did you mean '-mno-sse2'?
+CMakeFiles/cmTC_e6194.dir/build.make:77: recipe for target 'CMakeFiles/cmTC_e6194.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_e6194.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_e6194/fast' failed
+make: *** [cmTC_e6194/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test WEBP_HAVE_FLAG_NEON failed with the following output:
+Change Dir: /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_dd3d7/fast && /usr/bin/make  -f CMakeFiles/cmTC_dd3d7.dir/build.make CMakeFiles/cmTC_dd3d7.dir/build
+make[1]: Entering directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dd3d7.dir/src.c.o
+/usr/bin/cc -DWEBP_HAVE_FLAG_NEON -I/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/libwebp -pthread  -fPIE -o CMakeFiles/cmTC_dd3d7.dir/src.c.o -c /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c
+/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c:5:9: error: unknown type name ‘this’
+         this is not valid code
+         ^~~~
+/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c:5:17: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘not’
+         this is not valid code
+                 ^~~
+CMakeFiles/cmTC_dd3d7.dir/build.make:77: recipe for target 'CMakeFiles/cmTC_dd3d7.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_dd3d7.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_dd3d7/fast' failed
+make: *** [cmTC_dd3d7/fast] Error 2
+
+
+Source file was:
+
+      #include "/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/libwebp/cmake/../src/dsp/dsp.h"
+      int main(void) {
+        #if !defined(WEBP_USE_NEON)
+        this is not valid code
+        #endif
+        return 0;
+      }
+    
+Performing C SOURCE FILE Test WEBP_HAVE_FLAG_NEON failed with the following output:
+Change Dir: /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_8c3a5/fast && /usr/bin/make  -f CMakeFiles/cmTC_8c3a5.dir/build.make CMakeFiles/cmTC_8c3a5.dir/build
+make[1]: Entering directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8c3a5.dir/src.c.o
+/usr/bin/cc -DWEBP_HAVE_FLAG_NEON -I/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/libwebp -pthread -mfpu=neon -fPIE -o CMakeFiles/cmTC_8c3a5.dir/src.c.o -c /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command line option ‘-mfpu=neon’
+CMakeFiles/cmTC_8c3a5.dir/build.make:77: recipe for target 'CMakeFiles/cmTC_8c3a5.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_8c3a5.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_8c3a5/fast' failed
+make: *** [cmTC_8c3a5/fast] Error 2
+
+
+Source file was:
+
+      #include "/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/libwebp/cmake/../src/dsp/dsp.h"
+      int main(void) {
+        #if !defined(WEBP_USE_NEON)
+        this is not valid code
+        #endif
+        return 0;
+      }
+    
+Performing C SOURCE FILE Test WEBP_HAVE_FLAG_MSA failed with the following output:
+Change Dir: /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_614da/fast && /usr/bin/make  -f CMakeFiles/cmTC_614da.dir/build.make CMakeFiles/cmTC_614da.dir/build
+make[1]: Entering directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_614da.dir/src.c.o
+/usr/bin/cc -DWEBP_HAVE_FLAG_MSA -I/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/libwebp -pthread  -fPIE -o CMakeFiles/cmTC_614da.dir/src.c.o -c /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c
+/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c:5:9: error: unknown type name ‘this’
+         this is not valid code
+         ^~~~
+/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c:5:17: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘not’
+         this is not valid code
+                 ^~~
+CMakeFiles/cmTC_614da.dir/build.make:77: recipe for target 'CMakeFiles/cmTC_614da.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_614da.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_614da/fast' failed
+make: *** [cmTC_614da/fast] Error 2
+
+
+Source file was:
+
+      #include "/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/libwebp/cmake/../src/dsp/dsp.h"
+      int main(void) {
+        #if !defined(WEBP_USE_MSA)
+        this is not valid code
+        #endif
+        return 0;
+      }
+    
+Performing C SOURCE FILE Test WEBP_HAVE_FLAG_MSA failed with the following output:
+Change Dir: /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_7c6b4/fast && /usr/bin/make  -f CMakeFiles/cmTC_7c6b4.dir/build.make CMakeFiles/cmTC_7c6b4.dir/build
+make[1]: Entering directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7c6b4.dir/src.c.o
+/usr/bin/cc -DWEBP_HAVE_FLAG_MSA -I/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/libwebp -pthread -mmsa -fPIE -o CMakeFiles/cmTC_7c6b4.dir/src.c.o -c /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command line option ‘-mmsa’; did you mean ‘-Whsa’?
+CMakeFiles/cmTC_7c6b4.dir/build.make:77: recipe for target 'CMakeFiles/cmTC_7c6b4.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_7c6b4.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_7c6b4/fast' failed
+make: *** [cmTC_7c6b4/fast] Error 2
+
+
+Source file was:
+
+      #include "/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/libwebp/cmake/../src/dsp/dsp.h"
+      int main(void) {
+        #if !defined(WEBP_USE_MSA)
+        this is not valid code
+        #endif
+        return 0;
+      }
+    
+Performing C SOURCE FILE Test HAS_COMPILE_FLAG failed with the following output:
+Change Dir: /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_50d59/fast && /usr/bin/make  -f CMakeFiles/cmTC_50d59.dir/build.make CMakeFiles/cmTC_50d59.dir/build
+make[1]: Entering directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_50d59.dir/src.c.o
+/usr/bin/cc -DHAS_COMPILE_FLAG  -pthread -mmsa -fPIE   -mno-msa -o CMakeFiles/cmTC_50d59.dir/src.c.o -c /home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command line option '-mmsa'; did you mean '-Whsa'?
+cc: error: unrecognized command line option '-mno-msa'; did you mean '-Wno-hsa'?
+CMakeFiles/cmTC_50d59.dir/build.make:77: recipe for target 'CMakeFiles/cmTC_50d59.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_50d59.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/umarkov/Downloads/luciad-webp-imageio-873c5677244b/build/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_50d59/fast' failed
+make: *** [cmTC_50d59/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }

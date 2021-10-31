@@ -1,0 +1,12 @@
+com/luciad/imageio/webp/NativeLibraryUtils.class
+com/luciad/imageio/webp/WebPImageWriterSpi.class
+com/luciad/imageio/webp/WebPEncoderOptions.class
+com/luciad/imageio/webp/WebPImageReaderSpi.class
+com/luciad/imageio/webp/WebP$1.class
+com/luciad/imageio/webp/WebPReader.class
+com/luciad/imageio/webp/WebPDecoderOptions.class
+com/luciad/imageio/webp/WebPWriteParam.class
+com/luciad/imageio/webp/WebPWriter.class
+com/luciad/imageio/webp/VP8StatusCode.class
+com/luciad/imageio/webp/WebPReadParam.class
+com/luciad/imageio/webp/WebP.class

@@ -1,0 +1,1 @@
+/usr/bin/cc  -pthread -O3 -DNDEBUG CMakeFiles/webpmux.dir/examples/webpmux.c.o -o webpmux  libexampleutil.a libimageioutil.a libwebpmux.a libwebp.a -lpthread -lm 

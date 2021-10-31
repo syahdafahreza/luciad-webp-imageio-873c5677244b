@@ -1,0 +1,1 @@
+/usr/bin/cc  -pthread -O3 -DNDEBUG CMakeFiles/get_disto.dir/extras/get_disto.c.o -o get_disto  libimagedec.a libimageioutil.a libwebpdemux.a libwebp.a -lpthread -lm 

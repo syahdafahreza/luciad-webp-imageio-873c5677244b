@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.luciad.imageio.webp.WebPTest
+-------------------------------------------------------------------------------
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.558 s - in com.luciad.imageio.webp.WebPTest

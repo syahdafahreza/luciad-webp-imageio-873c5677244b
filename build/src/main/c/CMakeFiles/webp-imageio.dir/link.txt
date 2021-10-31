@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -O3 -DNDEBUG -shared -Wl,-soname,libwebp-imageio.so -o libwebp-imageio.so CMakeFiles/webp-imageio.dir/webp-imageio.c.o  ../../../libwebp/libwebp.a -lpthread -lm 

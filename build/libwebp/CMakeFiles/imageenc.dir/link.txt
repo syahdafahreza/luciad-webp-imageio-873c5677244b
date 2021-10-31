@@ -1,0 +1,2 @@
+/usr/bin/ar qc libimageenc.a CMakeFiles/imageenc.dir/imageio/image_enc.c.o
+/usr/bin/ranlib libimageenc.a

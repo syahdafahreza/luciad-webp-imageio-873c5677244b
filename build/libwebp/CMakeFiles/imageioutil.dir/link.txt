@@ -1,0 +1,2 @@
+/usr/bin/ar qc libimageioutil.a CMakeFiles/imageioutil.dir/imageio/imageio_util.c.o
+/usr/bin/ranlib libimageioutil.a
